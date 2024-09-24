@@ -1,0 +1,29 @@
+{
+	"name": "smart_agri_backend",
+	"version": "1.0.0",
+	"main": "./lib/index.js",
+	"scripts": {
+		"dev": "nodemon"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Fullstack-Alchemists-SJSU/smart_agri_backend.git"
+	},
+	"author": "Fullstack Alchemists SJSU",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Fullstack-Alchemists-SJSU/smart_agri_backend/issues"
+	},
+	"homepage": "https://github.com/Fullstack-Alchemists-SJSU/smart_agri_backend#readme",
+	"description": "",
+	"dependencies": {
+		"nodemon": "^3.1.7",
+		"spi-device": "^3.1.2",
+		"typescript": "^5.6.2",
+		"w1temp": "^4.4.1"
+	},
+	"devDependencies": {
+		"@tsconfig/node22": "^22.0.0",
+		"@types/node": "^22.6.1"
+	}
+}
