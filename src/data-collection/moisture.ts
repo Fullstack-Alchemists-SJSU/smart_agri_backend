@@ -1,6 +1,6 @@
 import * as spi from "spi-device"
 
-const DATA_CHANNEL = 4
+const DATA_CHANNEL = 0
 const SPI_SPEED = 1350000
 
 const getMoisture = () => {
