@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"main": "./lib/index.js",
 	"scripts": {
-		"dev": "nodemon"
+		"dev": "export UV_USE_IO_URING=0; nodemon"
 	},
 	"repository": {
 		"type": "git",
