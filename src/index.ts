@@ -1,4 +1,4 @@
-import device, { RASPI_DEVICE_ID } from "./aws/device"
+import device, {RASPI_DEVICE_ID} from "./aws/device"
 import getMoisture from "./data-collection/moisture"
 import {
 	publishSensorData,
@@ -22,6 +22,7 @@ const WET_VALUE = 200
  */
 
 const SENSOR_READ_INTERVAL = 1000 // Read and publish every 60 seconds
+const dataQueue: ThingSpeakData[] = []
 
 device.on("connect", () => {
 	console.log("Connected to AWS IoT")
@@ -45,9 +46,17 @@ async function readAndPublishSensorData() {
 			moisturePer =
 				(100 * (DRY_VALUE - rawMoisture)) / (DRY_VALUE - WET_VALUE)
 
+		dataQueue.push({temp, moisture: rawMoisture})
+
 		console.log("temp: ", temp, " moisture: ", rawMoisture)
 
-		await publishSensorData(temp, rawMoisture, moisturePer, Date.now(), RASPI_DEVICE_ID)
+		await publishSensorData(
+			temp,
+			rawMoisture,
+			moisturePer,
+			Date.now(),
+			RASPI_DEVICE_ID
+		)
 		console.log("Sensor data published successfully")
 	} catch (error) {
 		console.error("Error reading or publishing sensor data:", error)
@@ -59,28 +68,9 @@ export function startSensorMonitoring(intervalMs: number) {
 	setInterval(readAndPublishSensorData, intervalMs)
 }
 
-/**
- * For Thingspeak
- */
-
-/*const dataQueue: ThingSpeakData[] = []
-
-setInterval(async () => {
-	try {
-		const temp = await getTemperature()
-		const moisture = await getMoisture()
-
-		dataQueue.push({temp, moisture})
-
-		console.log(`Added {${temp}, ${moisture}} to queue`)
-	} catch (error) {
-		console.error("Error reading sensor data:", error)
-	}
-}, 1000)
-
 setInterval(async () => {
 	if (dataQueue.length > 0) {
 		const data = dataQueue.shift()
 		await sendDataToThingspeak(data?.temp, data?.moisture)
 	}
-}, 15000)*/
+}, 15000)
