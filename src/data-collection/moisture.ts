@@ -3,6 +3,7 @@ import * as spi from "spi-device"
 const DATA_CHANNEL = 0
 const SPI_SPEED = 1350000
 
+// Function to get moisture data from the sensor
 const getMoisture = async () => {
 	return new Promise<number>((resolve, reject) => {
 		const mcp = spi.open(0, 0, (err) => {
@@ -20,6 +21,7 @@ const getMoisture = async () => {
 				},
 			]
 
+			// Transfer data to and from the MCP3008
 			mcp.transfer(message, (err: any, message: any) => {
 				if (err) {
 					console.error("SPI Transfer Error:", err)

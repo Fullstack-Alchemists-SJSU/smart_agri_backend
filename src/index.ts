@@ -7,6 +7,7 @@ import {
 import getTemperature from "./data-collection/temperature"
 import * as dotenv from "dotenv"
 
+// Load environment variables from .env file
 dotenv.config()
 
 type ThingSpeakData = {
@@ -24,15 +25,18 @@ const WET_VALUE = 200
 const SENSOR_READ_INTERVAL = 1000 // Read and publish every 60 seconds
 const dataQueue: ThingSpeakData[] = []
 
+// Event handler for successful connection to AWS IoT
 device.on("connect", () => {
 	console.log("Connected to AWS IoT")
 	startSensorMonitoring(SENSOR_READ_INTERVAL)
 })
 
+// Event handler for connection errors
 device.on("error", (error) => {
 	console.error("AWS IoT Error:", error)
 })
 
+// Function to read and publish sensor data
 async function readAndPublishSensorData() {
 	try {
 		const temp = await getTemperature()
@@ -68,6 +72,7 @@ export function startSensorMonitoring(intervalMs: number) {
 	setInterval(readAndPublishSensorData, intervalMs)
 }
 
+// Function to send data to ThingSpeak every 15 seconds
 setInterval(async () => {
 	if (dataQueue.length > 0) {
 		const data = dataQueue.shift()

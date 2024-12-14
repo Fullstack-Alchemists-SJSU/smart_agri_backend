@@ -2,6 +2,7 @@ import * as w1temp from "w1temp";
 
 export const TEMP_DATA_GPIO_PIN = 4;
 
+// Function to get temperature data from the sensor
 const getTemperature = async () => {
   return new Promise<number>((resolve, reject) => {
     w1temp

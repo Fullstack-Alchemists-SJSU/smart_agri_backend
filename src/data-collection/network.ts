@@ -10,6 +10,8 @@ export const FieldMapping = {
 	FieldTemperature: "field1",
 	FieldMoisture: "field2",
 }
+
+// Function to send data to ThingSpeak
 export const sendDataToThingspeak = async (temp: any, moisture: any) => {
 	var url = `https://api.thingspeak.com/update?api_key=${process.env.THINGS_WRITE_KEY}&${FieldMapping.FieldTemperature}=${temp}&${FieldMapping.FieldMoisture}=${moisture}`
 
@@ -23,6 +25,7 @@ export const sendDataToThingspeak = async (temp: any, moisture: any) => {
 	}
 }
 
+// Function to publish sensor data to AWS IoT
 export async function publishSensorData(
 	temp: number,
 	moisture: number,
