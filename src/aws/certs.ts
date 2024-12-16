@@ -12,6 +12,7 @@ export const keyPath = path.join(
 )
 export const caPath = path.join(__dirname, "../certs/AmazonRootCA1.pem")
 
+// Check if all certificate files exist
 if (
 	!fs.existsSync(certPath) ||
 	!fs.existsSync(keyPath) ||
