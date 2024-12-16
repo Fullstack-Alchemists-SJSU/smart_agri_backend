@@ -42,18 +42,18 @@ npm start
 
 ## Features and Implementation
 ### Core Features
-Real-time Monitoring:
-Soil moisture and temperature data are collected and displayed in real-time.
-Data processed using calibrated algorithms for precise insights.
-Cloud Integration:
-Dual-cloud setup with AWS IoT Core and ThingSpeak for data storage and visualization.
-Interactive Dashboard:
-Responsive dashboard built with React, showcasing real-time readings, historical trends, and predictive insights.
-AI Chatbot Integration:
-Provides agricultural recommendations based on real-time sensor data.
+1. Real-time Monitoring:
+- Soil moisture and temperature data are collected and displayed in real-time.
+- Data processed using calibrated algorithms for precise insights.
+2.  Cloud Integration:
+- Dual-cloud setup with AWS IoT Core and ThingSpeak for data storage and visualization.
+3. Interactive Dashboard:
+- Responsive dashboard built with React, showcasing real-time readings, historical trends, and predictive insights.
+4. AI Chatbot Integration:
+- Provides agricultural recommendations based on real-time sensor data.
 ### Additional Features
-Error Handling: Comprehensive mechanisms to ensure reliable data collection and transmission.
-Scalability: Designed for integration with additional sensors and modules, supporting future expansion.
+1. Error Handling: Comprehensive mechanisms to ensure reliable data collection and transmission.
+2. Scalability: Designed for integration with additional sensors and modules, supporting future expansion.
 
 ## Functional Tests
 ### Temperature Sensor Validation:
@@ -72,6 +72,8 @@ Dashboard Visualization:
 
 ### Validates real-time updates and historical trend charts on the React dashboard.
 Status: ✅ Passed.
+
+![Functional Tests Passing](backend-mocktests.jpeg)
 
 The video demo has all the functional tests passing. Screenshots are not possible since its an Iot project with hardware realitime components which can be proved only in video. 
 Video Link - https://drive.google.com/file/d/158Ri0c_kD-zHv3yQAt_43dfxzW4A9_yw/view?usp=sharing
