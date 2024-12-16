@@ -1,4 +1,4 @@
-# IoT Smart Agriculture System (Backend Code)
+# IoT Smart Agriculture System
 
 ## Project Overview
 
